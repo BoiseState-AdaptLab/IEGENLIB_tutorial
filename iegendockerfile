@@ -1,0 +1,22 @@
+#set OS to Centos
+FROM centos
+
+# install necessary tools for GNU
+# as well as net-tools for networking 
+# 
+RUN yum install -y wget gcc gcc-c++ git autoconf automake cmake make tar
+
+# install automake 115
+RUN wget http://ftp.gnu.org/gnu/automake/automake-1.15.1.tar.gz && tar -xvzf\
+automake-1.15.1.tar.gz && cd automake-1.15.1/ && ./configure && make install 
+
+#clone IEGENLib
+RUN  git clone\
+ https://github.com/BoiseState-AdaptLab/IEGenLib.git
+
+# build IEGEN Lib
+RUN cd IEGenLib && ./configure && make && make test
+
+# run command to start TimeServer 
+# in docker instance
+CMD IEGenLib/build/src/iegenlib_calc
