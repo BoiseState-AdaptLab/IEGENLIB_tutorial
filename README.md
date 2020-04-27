@@ -15,9 +15,9 @@ Build docker file:
 sudo docker build -f iegendockerfile -t iegendocker . 
 
 
-Run an instance of timeserver's dockerfile:
+Run iegen lib interactively:
 
-sudo docker run iegendocker
+sudo docker run -it iegendocker /bin/bash
 
-
+IEGenLib/build/src/iegenlib_calc
 

@@ -15,7 +15,7 @@ RUN  git clone\
  https://github.com/BoiseState-AdaptLab/IEGenLib.git
 
 # build IEGEN Lib
-RUN cd IEGenLib && ./configure && make && make test
+RUN cd IEGenLib && ./configure && make
 
 # run command to start TimeServer 
 # in docker instance
